@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      database: chat_database
+      hosts:
+        - localhost:27017
