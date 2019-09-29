@@ -1,5 +1,7 @@
 class Message
   include Mongoid::Document
+  include Mongoid::Timestamps
+  
   field :text, type: String
   field :user_id, type: String
   field :room_id, type: String
