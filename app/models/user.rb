@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
     field :name,    type: String
 
-    validates :name, length: { maximum: 40 }, presence: true
+    validates :name, length: { maximum: 40, minimum: 4 }, presence: true, uniqueness: true
 
     has_many :messages
 end

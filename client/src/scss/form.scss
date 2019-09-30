@@ -1,0 +1,48 @@
+form {
+    input {
+        padding: .5rem;
+        height: 1rem;
+        outline: none;
+
+        &:hover, &:focus {
+            border: 2px solid $primary;
+        }
+    }
+
+    button {
+        background-color: $primary;
+        color: white;
+        height: 2.25rem;
+        padding: .5rem 1rem;
+        border: none;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $primary-dark;
+        }
+    }
+
+    &.form-error {
+        animation: shake 0.25s linear;
+        
+        input, button {
+            border: 1px solid red;
+        }
+        button {
+            height: calc(2.25rem - 2px);
+        }
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 1rem 0;
+
+    &.errors {
+        li {
+            color: red;
+        }
+    }
+}

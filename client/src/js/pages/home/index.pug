@@ -1,0 +1,11 @@
+.main-layout-content-login
+    .main-layout-header
+        img(src=require('assets/images/chat.png'))
+    h1 Bienvenido al Rails Chat.
+    h4 Por favor, introduce un nombre de usuario
+    div
+    ul.errors(v-if="errors")
+        li(v-for="error in errors") {{ error }}
+    form(@submit="sendUser" :class="errors.length > 0 ? 'form-error' : ''")
+        input#name(v-model="name")
+        button Enviar
