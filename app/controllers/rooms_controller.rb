@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authorize_request
   before_action :set_room, only: [:show, :update, :destroy]
 
   # GET /rooms
