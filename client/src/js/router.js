@@ -2,6 +2,9 @@ import VueRouter from 'vue-router';
 
 // Pages
 import Home from './pages/home/index.js';
+import Rooms from './pages/rooms/index.js';
+
+import Room from './pages/rooms/_room.js';
 
 // Le indicamos a Vue que use VueRouter
 Vue.use(VueRouter);
@@ -18,6 +21,22 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
+    meta: {
+      layout: 'default'
+    }
+  },
+  {
+    path: '/rooms',
+    name: 'rooms',
+    component: Rooms,
+    meta: {
+      layout: 'default'
+    }
+  },
+  {
+    path: '/rooms/:room_id',
+    name: 'room',
+    component: Room,
     meta: {
       layout: 'default'
     }

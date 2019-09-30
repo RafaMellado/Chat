@@ -1,12 +1,13 @@
+import Vue from "vue";
+
 export default {
-    index(params) {
-        return Vue.http.get('http://localhost:3000/users', params).then(
-            response => {
-                return response.data;
-            }
-        );
+    login(params) {
+        return Vue.http.post('http://localhost:3000/auth/login', params);
     },
-    create(params) {
-        return Vue.http.post('http://localhost:3000/users', params);
+    rooms(params) {
+        return Vue.http.get('http://localhost:3000/rooms', params);
     },
+    room(room, params) {
+        return Vue.http.get(`http://localhost:3000/rooms/${room}`, params);
+    }
 };

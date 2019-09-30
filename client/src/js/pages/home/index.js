@@ -14,9 +14,11 @@ export default Vue.extend({
       this.errors = [];
 
       if(this.name) {
-        API.create({name: this.name}).then(response => {},
+        API.login({name: this.name}).then(response => {
+          localStorage.setItem('user', JSON.stringify(response.data));
+          this.$router.push('rooms');
+        },
           (response) => {
-            console.log(response);
             if (response.status === 422) {
               this.errors.push("El nombre tiene que tener al menos, 4 caracteres y máximo 40");
             }

@@ -1,0 +1,5 @@
+div
+    h1 Rooms
+    h4 Bienvenido, {{ user.name }}
+    ul(v-if="rooms")
+        li(v-for="room in rooms" @click="goToRoom(room)") {{ room.name }}

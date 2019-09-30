@@ -1,0 +1,6 @@
+div
+    h1  Room {{ room.name }}
+
+    ul(v-if="room.messages")
+        li(v-for="message in room.messages")
+            | {{ message.text }} by: {{ message.user.name }}
