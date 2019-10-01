@@ -21,8 +21,7 @@ class RoomsController < ApplicationController
                   }
                 }
               }
-            }
-           
+            }       
   end
 
   # POST /rooms

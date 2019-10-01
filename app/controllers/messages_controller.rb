@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authorize_request
   before_action :set_message, only: [:show, :update, :destroy]
 
   # GET /messages
@@ -19,6 +20,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       render json: @message, status: :created, location: @message
+      RoomChannel.broadcast_to("room_#{params[:room_id]}", @message.as_json(include: :user))
     else
       render json: @message.errors, status: :unprocessable_entity
     end

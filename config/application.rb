@@ -11,6 +11,9 @@ require "action_view/railtie"
 require "action_cable/engine"
 
 require 'rails/mongoid'
+
+require 'action_cable/engine'
+require 'action_cable/server'
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 

@@ -6,13 +6,17 @@ class AuthenticationController < ApplicationController
       @user = User.where(name: params[:name]).first
 
       if @user.nil?
-        @user = User.create(name: params[:name])
+        @user = User.new(name: params[:name])
+        if !@user.save
+            render json: @user.errors, status: :unprocessable_entity
+            return
+        end
       end
       if @user
         token = JsonWebToken.encode(user_id: @user.id)
         time = Time.now + 24.hours.to_i
         render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M"),
-                       username: @user.name }, status: :ok
+                       name: @user.name, id: @user.id }, status: :ok
       else
         render json: { error: 'unauthorized' }, status: :unauthorized
       end
