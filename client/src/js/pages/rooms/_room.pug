@@ -4,3 +4,7 @@ div
     ul(v-if="room.messages")
         li(v-for="message in room.messages")
             | {{ message.text }} by: {{ message.user.name }}
+
+    form(@submit="sendMessage")
+        input(v-model="message")
+        button Enviar

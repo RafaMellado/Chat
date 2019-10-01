@@ -9,5 +9,8 @@ export default {
     },
     room(room, params) {
         return Vue.http.get(`http://localhost:3000/rooms/${room}`, params);
+    },
+    sendMessage(message, params) {
+        return Vue.http.post('http://localhost:3000/messages', message, params);
     }
 };
