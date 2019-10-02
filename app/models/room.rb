@@ -4,7 +4,7 @@ class Room < ApplicationRecord
 
     field :name,    type: String
 
-    validates :name, length: { maximum: 40 }, presence: true
+    validates :name, length: { minimum: 4, maximum: 40 }, presence: true, uniqueness: true
 
     has_many :messages
 

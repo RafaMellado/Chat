@@ -35,3 +35,10 @@ body {
         border-radius: 4px;
     }
 }
+
+.room-list {
+    li:hover {
+        cursor: pointer;
+        color: #a3a3a3;
+    }
+}

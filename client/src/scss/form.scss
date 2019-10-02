@@ -9,19 +9,6 @@ form {
         }
     }
 
-    button {
-        background-color: $primary;
-        color: white;
-        height: 2.25rem;
-        padding: .5rem 1rem;
-        border: none;
-        outline: none;
-
-        &:hover {
-            cursor: pointer;
-            background-color: $primary-dark;
-        }
-    }
 
     &.form-error {
         animation: shake 0.25s linear;
@@ -44,5 +31,28 @@ ul {
         li {
             color: red;
         }
+    }
+}
+
+button {
+    background-color: $primary;
+    color: white;
+    height: 2.25rem;
+    padding: .5rem 1rem;
+    border: none;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $primary-dark;
+    }
+}
+
+.form-label {
+    display: flex;
+    flex-direction: column;
+
+    input {
+        margin-top: .5rem;
     }
 }

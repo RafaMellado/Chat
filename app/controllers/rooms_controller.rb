@@ -28,8 +28,14 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
 
+    if Room.where(:name => @room.name).first
+      render status: 409
+      return
+    end
+
     if @room.save
       render json: @room, status: :created, location: @room
+      RoomsChannel.broadcast_to("rooms", @room)
     else
       render json: @room.errors, status: :unprocessable_entity
     end

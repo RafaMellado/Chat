@@ -1,5 +1,12 @@
 div
+    button(@click="openModal") Crear sala
     h1 Rooms
     h4 Bienvenido, {{ user.name }}
-    ul(v-if="rooms")
+
+    ul.room-list(v-if="rooms")
         li(v-for="room in rooms" @click="goToRoom(room)") {{ room.name }}
+
+    modal(
+        v-if="showModal",
+        @close-modal="closeModal"
+    )

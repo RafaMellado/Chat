@@ -12,19 +12,13 @@ export default Vue.extend({
     };
   },
   methods: {
-    sendMessage(e) {
-      e.preventDefault();
-      this.postMessage();
-      this.message = '';
-    },
     async postMessage() {
       await API.sendMessage(
         {
           text: this.message,
           room_id: this.room.id,
           user_id: this.user.id
-        },
-        {
+        },{
           headers: {Authorization: this.user.token}
         });
     },
@@ -32,6 +26,11 @@ export default Vue.extend({
       await API.room(this.$route.params.room_id, {headers: {Authorization: this.user.token}}).then(response => {
         this.room = response.data;
       });
+    },
+    sendMessage(e) {
+      e.preventDefault();
+      this.postMessage();
+      this.message = '';
     },
     unsubscribe() {
       this.$cable.unsubscribe('RoomChannel');

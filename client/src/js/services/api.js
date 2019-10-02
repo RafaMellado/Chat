@@ -12,5 +12,8 @@ export default {
     },
     sendMessage(message, params) {
         return Vue.http.post('http://localhost:3000/messages', message, params);
+    },
+    sendRoom(room, params) {
+        return Vue.http.post('http://localhost:3000/rooms', room, params);
     }
 };

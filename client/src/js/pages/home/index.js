@@ -22,9 +22,6 @@ export default Vue.extend({
             if (response.status === 422) {
               this.errors.push("El nombre tiene que tener al menos, 4 caracteres y máximo 40");
             }
-            if (response.status === 409) {
-              this.errors.push("El nombre " + this.name + " ya está en uso.");
-            }
         });
       }
     }

@@ -1,0 +1,11 @@
+.modal
+    .modal-container
+        .modal-overlay(@click="closeModal")
+        .modal-content
+            h3 Crear sala
+
+            form(@submit="postRoom" :class="errors.length > 0 ? 'form-error' : ''")
+                ul.errors(v-if="errors")
+                    li(v-for="error in errors") {{ error }}
+                input(v-model="room")
+                button Crear sala
