@@ -35,6 +35,11 @@ export default Vue.extend({
       this.$cable.unsubscribe('RoomsChannel');
     }
   },
+  beforeCreate() {
+    /*if (localStorage.getItem('user') === null) {
+      this.$router.push({name: 'home'});
+    }*/
+  },
   created() {
     const vm = this;
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -48,6 +53,8 @@ export default Vue.extend({
     });
   },
   destroyed() {
-    Vue.$cable().subscriptions.remove(subscription);
+    if(subscription) {
+      Vue.$cable().subscriptions.remove(subscription);
+    }
   }
 });

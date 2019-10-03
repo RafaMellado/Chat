@@ -16,13 +16,14 @@ const RouteParent = {render(c) { return c('router-view'); }};
 // either be an actual component constructor created via
 // Vue.extend(), or just a component options object.
 // We'll talk about nested routes later.
+
 const routes = [
   {
     path: '/',
     name: 'home',
     component: Home,
     meta: {
-      layout: 'default'
+      layout: 'default',
     }
   },
   {
@@ -30,7 +31,8 @@ const routes = [
     name: 'rooms',
     component: Rooms,
     meta: {
-      layout: 'default'
+      layout: 'default',
+      auth: true
     }
   },
   {
@@ -38,7 +40,8 @@ const routes = [
     name: 'room',
     component: Room,
     meta: {
-      layout: 'default'
+      layout: 'default',
+      auth: true
     }
   },
   {
@@ -51,5 +54,14 @@ const routes = [
 // You can pass in additional options here, but let's
 // keep it simple for now.
 const router = new VueRouter({routes});
+
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.auth === true && localStorage.getItem('user') === null) {
+    next({name: 'home'});
+  } else {
+    next();
+  }
+});
 
 export default router;
