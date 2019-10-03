@@ -1,8 +1,8 @@
 div
     h1  Room {{ room.name }}
 
-    ul(v-if="room.messages")
-        li(v-for="message in room.messages")
+    ul(v-if="roomMessages")
+        li(v-for="message in roomMessages")
             | {{ message.text }} by: {{ message.user.name }}
 
     form(@submit="sendMessage")
