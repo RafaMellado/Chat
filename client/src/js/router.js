@@ -55,7 +55,6 @@ const routes = [
 // keep it simple for now.
 const router = new VueRouter({routes});
 
-
 router.beforeEach((to, from, next) => {
   if (to.meta.auth === true && localStorage.getItem('user') === null) {
     next({name: 'home'});

@@ -35,11 +35,6 @@ export default Vue.extend({
       this.$cable.unsubscribe('RoomsChannel');
     }
   },
-  beforeCreate() {
-    /*if (localStorage.getItem('user') === null) {
-      this.$router.push({name: 'home'});
-    }*/
-  },
   created() {
     const vm = this;
     this.user = JSON.parse(localStorage.getItem('user'));
