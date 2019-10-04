@@ -16,7 +16,7 @@ Vue.$cable = () => {
   }
   return Vue.$cableConnection;
 };
-
+import Vue from 'vue';
 
 require('scss/main.scss');
 
@@ -26,6 +26,20 @@ Vue.store = store;
 
 Vue.use(VueResource);
 
+import VueMoment from 'vue-moment';
+import moment from 'moment';
+import 'moment/locale/es';
+Vue.use(VueMoment);
+
+Vue.moment();
+
+moment.locale('es');
+
+moment.updateLocale('es', {
+  relativeTime : {
+    
+  }
+});
 
 Vue.http.options.root = API_HOST;
 Vue.http.headers.common['Access-Control-Allow-Origin'] = 'Content-Type'

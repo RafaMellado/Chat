@@ -1,4 +1,5 @@
 import template from './_room.pug';
+import moment from 'moment';
 
 let subscription = undefined;
 
@@ -25,8 +26,6 @@ export default Vue.extend({
     async getRooms() {
       await API.room(this.$route.params.room_id, {headers: {Authorization: this.user.token}}).then(response => {
         this.room = response.data;
-
-        console.log(response.data);
       });
     },
     sendMessage(e) {
@@ -36,6 +35,9 @@ export default Vue.extend({
     },
     unsubscribe() {
       this.$cable.unsubscribe('RoomChannel');
+    },
+    getDate() {
+      return this.$moment(this.room.created_at).fromNow();
     }
   },
   created() {
