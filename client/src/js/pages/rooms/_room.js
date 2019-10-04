@@ -8,8 +8,7 @@ export default Vue.extend({
     return {
         user: undefined,
         message: undefined,
-        room: '',
-        roomMessages: []
+        room: []
     };
   },
   methods: {
@@ -25,8 +24,9 @@ export default Vue.extend({
     },
     async getRooms() {
       await API.room(this.$route.params.room_id, {headers: {Authorization: this.user.token}}).then(response => {
-        this.room = response.data[0];
-        this.roomMessages = response.data[1];
+        this.room = response.data;
+
+        console.log(response.data);
       });
     },
     sendMessage(e) {
@@ -45,11 +45,11 @@ export default Vue.extend({
     this.getRooms();
         
     this.$nextTick( () => {
-      
+      vm.room = JSON.parse(JSON.stringify(vm.room));
       subscription = Vue.$cable().subscriptions.create({channel: 'RoomChannel', room: this.$route.params.room_id},
       {
         received(data) {
-          vm.roomMessages.push(data);
+          vm.room.messages.push(data);
         }
       });
     });

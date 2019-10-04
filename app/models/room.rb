@@ -8,7 +8,6 @@ class Room < ApplicationRecord
 
     has_many :messages
 
-
     def as_json(*args)
         res = super
         res["id"] = res.delete("_id").to_s

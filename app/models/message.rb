@@ -3,8 +3,8 @@ class Message
   include Mongoid::Timestamps
   
   field :text, type: String
-  field :user, type: Object
-  field :room, type: Object
+  field :user_id, type: String
+  field :room_id, type: String
 
   belongs_to :user
   belongs_to :room 

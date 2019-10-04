@@ -11,7 +11,17 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1
   def show
-    render :json => [@room, Message.all.where(:room => @room).order('created_at desc').limit(20).only([:text, :user])]
+    render :json => @room, 
+    :include => { 
+       :messages => {
+         :only => [:text, :created_at],
+         :include => {
+           :user => {
+             :only => [:name]
+           }
+         }
+       }
+     }      
   end
 
   # POST /rooms
