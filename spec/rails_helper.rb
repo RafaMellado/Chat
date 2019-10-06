@@ -14,7 +14,7 @@ RSpec.configure do |config|
   config.include Mongoid::Matchers, type: :model
 end
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 
 # Prevent database truncation if the environment is production

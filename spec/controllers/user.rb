@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe UsersController, type: :controller do
     describe 'GET #index' do
         before :all do
