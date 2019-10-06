@@ -4,7 +4,6 @@ describe MessagesController, type: :controller do
     describe 'GET #index' do
         before :all do
             @user = create(:user)
-            # @messages = create_list(:message, 5)
         end
 
         context 'respond with a valid JWT' do

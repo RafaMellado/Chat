@@ -1,5 +1,5 @@
 FactoryBot.define do
     factory :room do
-        name { Faker::Name.name }
+        name { Faker::Games::WorldOfWarcraft.hero }
     end
   end
