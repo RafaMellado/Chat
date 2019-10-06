@@ -24,7 +24,7 @@ describe UsersController, type: :controller do
         let(:attributes) { attributes_for(:user) }
   
         before do
-            post :create, params: {data: attributes}
+            post :create, params: {user: attributes}
         end          
 
         it 'create a resource' do

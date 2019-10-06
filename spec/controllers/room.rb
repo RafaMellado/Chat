@@ -4,6 +4,7 @@ describe RoomsController, type: :controller do
     before :all do
         @user = create(:user)
         @rooms = create_list(:room, 5)
+        @messages = create_list(:message, 5)
     end
     describe 'requests' do
         context 'respond with a valid JWT' do
@@ -24,7 +25,7 @@ describe RoomsController, type: :controller do
                 let(:params) { attributes_for :room }
 
                 before do
-                    post :create, params: {data: params}
+                    post :create, params: {room: params}
                 end          
 
                 it 'create a resource' do
@@ -48,7 +49,7 @@ describe RoomsController, type: :controller do
                 let(:params) { attributes_for :room }
 
                 before do
-                    post :create, params: {data: params}
+                    post :create, params: {room: params}
                 end          
 
                 it 'create a resource' do

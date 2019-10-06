@@ -1,5 +1,6 @@
 div
-    h1  Room {{ room.name }} creada hace {{ getDate() }}
+    h1 Room {{ room.name }}
+    h3 creada hace {{ getDate() }}
 
     ul(v-if="room.messages")
         li(v-for="message in room.messages")

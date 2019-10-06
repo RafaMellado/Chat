@@ -3,8 +3,6 @@ require 'rails_helper'
 describe Message, type: :model do
     describe 'Fields' do
         it { is_expected.to have_field(:text).of_type(String) }
-        it { is_expected.to have_field(:user_id).of_type(Object) }
-        it { is_expected.to have_field(:room_id).of_type(Object) }
     end
 
     describe 'Relations' do
